@@ -36,3 +36,11 @@ function getSlice(str, start, end) {
   console.log("Slicing String: ", str.slice(start, end));
 }
 getSlice("Hello World", 0, 5);
+
+// substr()
+
+const value = "Nur Adnan";
+let ans1 = value.substr(2, 5); // in substr -> the last value is set for the final length of the string
+let ans2 = value.slice(2, 5); // starting from 2 to 4
+console.log(ans1);
+console.log(ans2);
