@@ -44,3 +44,34 @@ let ans1 = value.substr(2, 5); // in substr -> the last value is set for the fin
 let ans2 = value.slice(2, 5); // starting from 2 to 4
 console.log(ans1);
 console.log(ans2);
+
+// function slice
+
+function cutIt(str, startIndex, endIndex) {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (i >= startIndex && i < endIndex) {
+      newStr = newStr + str[i];
+    }
+  }
+  return newStr;
+}
+
+console.log(cutIt(value, 2, 5));
+
+// replace
+
+function replaceString(str, target, replacement) {
+  console.log("Original String: ", str);
+  const updatedStr = str.replace(target, replacement);
+  console.log("After replace: ", updatedStr);
+  return updatedStr;
+}
+
+const strR = "Hello World";
+console.log(replaceString(strR, "World", "Adnan"));
+
+// for another examples
+
+const Ex = "Hello Adnan";
+console.log(replaceString(Ex, "Adnan", "JavaScript"));
