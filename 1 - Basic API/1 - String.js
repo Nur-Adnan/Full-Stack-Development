@@ -75,3 +75,33 @@ console.log(replaceString(strR, "World", "Adnan"));
 
 const Ex = "Hello Adnan";
 console.log(replaceString(Ex, "Adnan", "JavaScript"));
+
+// split
+
+const valueSplit = "Hello, My name is Nur Adnan";
+console.log(valueSplit.split(",")); // Delimeter
+
+// trim
+
+const valueTrim = "          Hello World          ";
+console.log(valueTrim.trim());
+
+// toUpperCase
+
+function toUpper(str) {
+  console.log("Original String: ", str);
+  const updatedValue = console.log("After toUpper: ", str.toUpperCase());
+  return updatedValue;
+}
+
+toUpper("Hello World");
+
+// toLower
+
+function toLower(str) {
+  console.log("Original String: ", str);
+  const updatedValue = console.log("After Updating: ", str.toLowerCase());
+  return updatedValue;
+}
+
+toLower("Hello World");
