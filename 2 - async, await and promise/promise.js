@@ -19,8 +19,11 @@ adnanUglyWay(onDone);
 // cleaner way to write a async function
 
 function adnanCleanerWay() {
+  console.log("Inside adnanCleanerWay");
   return new Promise(function (resolve) {
+    console.log("Inside new Promise");
     fs.readFile("a.txt", "utf-8", function (error, data) {
+      console.log("Before resolve");
       resolve(data);
     });
   });
