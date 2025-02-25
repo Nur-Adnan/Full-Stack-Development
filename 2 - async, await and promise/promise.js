@@ -33,4 +33,6 @@ function onDone(data) {
   console.log(data);
 }
 
-adnanCleanerWay().then(onDone);
+let a = adnanCleanerWay();
+console.log(a);
+a.then(onDone);
