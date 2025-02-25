@@ -33,6 +33,22 @@ function onDone(data) {
   console.log(data);
 }
 
+// pending, resolved
 let a = adnanCleanerWay();
 console.log(a);
 a.then(onDone);
+
+// more example
+
+let d = new Promise(function (resolve) {
+  setTimeout(function () {
+    resolve("Foo");
+  }, 1000);
+});
+
+function callback() {
+  console.log(d);
+}
+
+console.log(d); // pending
+d.then(callback); // resolved
