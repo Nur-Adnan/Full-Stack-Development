@@ -52,3 +52,17 @@ function callback() {
 
 console.log(d); // pending
 d.then(callback); // resolved
+
+// another example
+
+function adnanAsyncFunction() {
+  let p = new Promise(function (resolve) {
+    resolve("Hi There !");
+  });
+  return p;
+}
+
+const value = adnanAsyncFunction();
+value.then(function (callback) {
+  console.log(callback);
+});
