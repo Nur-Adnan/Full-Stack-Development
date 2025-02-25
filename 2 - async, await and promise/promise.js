@@ -1,7 +1,7 @@
 // ugly way
 const fs = require("fs");
 
-function adnanReadFile(callback) {
+function adnanUglyWay(callback) {
   fs.readFile("a.txt", "utf-8", function (error, data) {
     callback(data);
   });
@@ -12,9 +12,22 @@ function onDone(data) {
   console.log(data);
 }
 
-adnanReadFile(onDone);
+adnanUglyWay(onDone);
 
-// it works like, in the adnanReadFile function, we pass onDone as a callback function
+// it works like, in the adnanUglyWay function, we pass onDone as a callback function
 
+// cleaner way to write a async function
 
+function adnanCleanerWay() {
+  return new Promise(function (resolve) {
+    fs.readFile("a.txt", "utf-8", function (error, data) {
+      resolve(data);
+    });
+  });
+}
 
+function onDone(data) {
+  console.log(data);
+}
+
+adnanCleanerWay().then(onDone);
