@@ -21,3 +21,12 @@ function syncSleep() {
 syncSleep();
 // setTimeout(findSumTill100, 1000);
 console.log("Hello World");
+
+// another example
+
+setTimeout(function () {
+  console.log("Hi There !");
+  setTimeout(function () {
+    console.log("Hi Adnan !");
+  }, 2000);
+}, 1000);

@@ -1,5 +1,6 @@
 // ugly way
 const fs = require("fs");
+const { resolve } = require("path");
 
 function adnanUglyWay(callback) {
   fs.readFile("a.txt", "utf-8", function (error, data) {
@@ -65,4 +66,18 @@ function adnanAsyncFunction() {
 const value = adnanAsyncFunction();
 value.then(function (callback) {
   console.log(callback);
+});
+
+// another example
+
+function myOwnsetTimeout(duration) {
+  let p = new Promise(function (resolve) {
+    // after 1 second, call resolve
+    setTimeout(resolve, 1000);
+  });
+  return p;
+}
+
+myOwnsetTimeout(1000).then(function () {
+  console.log("Log the first thing");
 });
