@@ -3,8 +3,35 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.json());
+const users = [
+  {
+    name: "Adnan",
+    kidneys: [
+      {
+        healthy: false,
+      },
+    ],
+  },
+];
 
+app.get("/route-handler/adnan", (req, res) => {
+  const adnanKidneys = users[0].kidneys;
+  const numberOfKidneys = adnanKidneys.length;
+  let numberofHealthyKidneys = 0;
+  for (let i = 0; i < adnanKidneys.length; i++) {
+    if (adnanKidneys[i].healthy) {
+      numberofHealthyKidneys = numberofHealthyKidneys + i;
+    }
+  }
+  const numberOfUnhealthyKidneys = numberOfKidneys - numberofHealthyKidneys;
+  res.json({
+    numberOfKidneys,
+    numberofHealthyKidneys,
+    numberOfUnhealthyKidneys,
+  });
+});
+
+app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("Hello World !");
 });
