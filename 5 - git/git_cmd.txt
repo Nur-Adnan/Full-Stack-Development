@@ -1,11 +1,15 @@
-1. git init
-2. git status
-3. git add -> to add all the files into the stage
-4. git staus -> now see, all the files into the stage
-5. git commit -m "Adding project files" -m "along with readme"
-6. git remote -v -> if it is empty, that means nothing is here, to push our changes
-7. git remote add origin "Link of the repo",
-8. git remote -v -> now you see the links
-9. git push origin master
-10.git clone "Link"
-11. 
+1.  git init
+2.  git status
+3.  git add -> to add all the files into the stage
+4.  git staus -> now see, all the files into the stage
+5.  git commit -m "Adding project files" -m "along with readme"
+6.  git remote -v -> if it is empty, that means nothing is here, to push our changes
+7.  git remote add origin "Link of the repo",
+8.  git remote -v -> now you see the links
+9.  git push origin master
+10. git clone "Link"
+11. git branch -> to checkout, which branch you are in now
+12. git checkout -b "Branch Name" -> to create a branch 
+13. git checkout "Branch Name" -> That means, it moves one branch to another branch
+14. git diff "Branch Name" -> to checkout the diff between main branch to sub branch
+15. git push -u origin "Branch Name"
