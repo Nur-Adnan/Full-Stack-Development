@@ -33,6 +33,32 @@ app.post("/route-handler/query", (req, res) => {
   });
 });
 
+// function to express
+function calculateSum(n) {
+  let ans = 0;
+  for (let i = 0; i <= n; i++) {
+    ans = ans + i;
+  }
+  return ans;
+}
+
+app.get("/route-handler/calculateSum", (req, res) => {
+  const n = req.query.n;
+  const ans = calculateSum(n);
+  res.send(ans);
+});
+
+function calculateAddition(a, b) {
+  return a + b;
+}
+
+app.get("/route-handler/calculateAddition", (req, res) => {
+  const a = req.query.a;
+  const b = req.query.b;
+  const ans = calculateAddition(a, b);
+  res.send(ans);
+});
+
 app.listen(port, () => {
   console.log(`App Listen on Port ${port}`);
 });
