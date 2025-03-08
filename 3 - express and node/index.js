@@ -52,6 +52,37 @@ app.put("/route-handler/adnanUpdation", (req, res) => {
   res.json({});
 });
 
+app.delete("/route-handler/adnan-deletion", (req, res) => {
+  if (isThereAtleastOneUnhealthyKidney()) {
+    const newKidneys = [];
+    for (let i = 0; i < users[0].kidneys.length; i++) {
+      if (users[0].kidneys[i].healthy) {
+        newKidneys.push({
+          healthy: true,
+        });
+      }
+    }
+    users[0].kidneys = newKidneys;
+    res.json({
+      msg: "Done",
+    });
+  } else {
+    res.status(411).json({
+      msg: "You have no bad kidney",
+    });
+  }
+});
+
+function isThereAtleastOneUnhealthyKidney() {
+  const atleastOneUnhealthyKidney = false;
+  for (let i = 0; i < users[0].kidneys.length; i++) {
+    if (users[0].kidneys[i].healthy) {
+      atleastOneUnhealthyKidney = true;
+    }
+  }
+  return atleastOneUnhealthyKidney;
+}
+
 app.get("/", (req, res) => {
   res.send("Hello World !");
 });
