@@ -14,6 +14,9 @@ const users = [
   },
 ];
 
+app.use(bodyParser.json());
+// also you can use app.use(express.json());
+
 app.get("/route-handler/adnan", (req, res) => {
   const adnanKidneys = users[0].kidneys;
   const numberOfKidneys = adnanKidneys.length;
@@ -31,7 +34,17 @@ app.get("/route-handler/adnan", (req, res) => {
   });
 });
 
-app.use(bodyParser.json());
+app.post("/route-handler/adnan-insertion", (req, res) => {
+  // in post request you send a data into the body
+  const isHealthy = req.body.isHealthy;
+  users[0].kidneys.push({
+    healthy: isHealthy,
+  });
+  res.json({
+    msg: "Done !",
+  });
+});
+
 app.get("/", (req, res) => {
   res.send("Hello World !");
 });
