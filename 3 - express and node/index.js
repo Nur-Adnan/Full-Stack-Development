@@ -74,7 +74,7 @@ app.delete("/route-handler/adnan-deletion", (req, res) => {
 });
 
 function isThereAtleastOneUnhealthyKidney() {
-  const atleastOneUnhealthyKidney = false;
+  let atleastOneUnhealthyKidney = false;
   for (let i = 0; i < users[0].kidneys.length; i++) {
     if (users[0].kidneys[i].healthy) {
       atleastOneUnhealthyKidney = true;
