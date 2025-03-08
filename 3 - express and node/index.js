@@ -45,6 +45,13 @@ app.post("/route-handler/adnan-insertion", (req, res) => {
   });
 });
 
+app.put("/route-handler/adnanUpdation", (req, res) => {
+  for (let i = 0; i < users[0].kidneys.length; i++) {
+    users[0].kidneys[i].healthy = true;
+  }
+  res.json({});
+});
+
 app.get("/", (req, res) => {
   res.send("Hello World !");
 });
