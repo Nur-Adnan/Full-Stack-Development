@@ -45,7 +45,7 @@ function calculateSum(n) {
 app.get("/route-handler/calculateSum", (req, res) => {
   const n = req.query.n;
   const ans = calculateSum(n);
-  res.send(ans);
+  res.send(ans.toString());
 });
 
 function calculateAddition(a, b) {
