@@ -13,3 +13,9 @@
 13. git checkout "Branch Name" -> That means, it moves one branch to another branch
 14. git diff "Branch Name" -> to checkout the diff between main branch to sub branch
 15. git push -u origin "Branch Name"
+16. git log --merge -> produce the list of commits 
+17. git diff
+18. git checkout 
+19. git reset --mixed -> used to undo the changes to the working directory and staging area.
+20. git merge --abort -> return back to the state before the merging began.
+21. git reset -> to reset the conflicted files to their original state.
