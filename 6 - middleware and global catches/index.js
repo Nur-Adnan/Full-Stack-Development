@@ -69,9 +69,10 @@ app.post("/router-handler/kidney-length", (req, res) => {
 
 // global catches
 app.use((err, req, res, next) => {
-  res.json({
-    msg: "Sorry something is up with our server",
-  });
+  // res.json({
+  //   msg: "Sorry something is up with our server",
+  // });
+  res.status(500).send("Internal Error Occure");
 });
 
 app.listen(port, () => {
