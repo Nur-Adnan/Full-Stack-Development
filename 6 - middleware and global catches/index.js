@@ -100,6 +100,21 @@ app.use((err, req, res, next) => {
   res.status(500).send("Internal Error Occure");
 });
 
+// zod in function
+
+function validInput(obj) {
+  const schema = zod.object({
+    email: zod.string().email(),
+    password: zod.string().min(8),
+  });
+  const response = schema.safeParse(obj);
+  console.log(response);
+}
+validInput({
+  email: "nuradnan@gmail.com",
+  password: "12345",
+});
+
 app.listen(port, () => {
   console.log(`App Listen on Port ${port}`);
 });
