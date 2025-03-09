@@ -19,3 +19,6 @@
 19. git reset --mixed -> used to undo the changes to the working directory and staging area.
 20. git merge --abort -> return back to the state before the merging began.
 21. git reset -> to reset the conflicted files to their original state.
+22. git branch -d "Branch Name" -> Delete the branch
+23. git commit -am "commit message"
+24. git push origin "branch name"
