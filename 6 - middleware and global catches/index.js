@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+app.use(express.json());
 
 //using middleware
 function authMiddleware(req, res, next) {
@@ -58,6 +59,16 @@ app.get("/health-checkup", (req, res) => {
     msg: "You are now authenticate",
   });
 });
+
+app.post("/router-handler/kidney-length", (req, res) => {
+  const kidneys = req.body.kidneys;
+  const kidneyLength = kidneys.length;
+
+  res.send("You have " + kidneyLength + " kidneys");
+});
+
+// global catches
+
 
 app.listen(port, () => {
   console.log(`App Listen on Port ${port}`);
