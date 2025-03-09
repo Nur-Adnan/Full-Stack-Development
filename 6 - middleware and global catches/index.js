@@ -1,6 +1,8 @@
 const express = require("express");
+const zod = require("zod");
 const app = express();
 const port = 3000;
+const schema = zod.array(zod.number());
 app.use(express.json());
 
 //using middleware
@@ -65,6 +67,16 @@ app.post("/router-handler/kidney-length", (req, res) => {
   const kidneyLength = kidneys.length;
 
   res.send("You have " + kidneyLength + " kidneys");
+});
+
+// using zod kidney length
+
+app.post("/health-checkup/kidney-zod", (req, res) => {
+  const kidney = req.body.kidney;
+  const response = schema.safeParse(kidney);
+  res.send({
+    response,
+  });
 });
 
 // global catches
