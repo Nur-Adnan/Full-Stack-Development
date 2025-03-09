@@ -3,6 +3,13 @@ const zod = require("zod");
 const app = express();
 const port = 3000;
 const schema = zod.array(zod.number());
+const userZodSchema = zod.object({
+  email: zod.string(),
+  password: zod.string(),
+  country: zod.literal("BD").or(zod.literal("USA")),
+  kidneys: zod.array(zod.number()),
+});
+
 app.use(express.json());
 
 //using middleware
@@ -74,9 +81,15 @@ app.post("/router-handler/kidney-length", (req, res) => {
 app.post("/health-checkup/kidney-zod", (req, res) => {
   const kidney = req.body.kidney;
   const response = schema.safeParse(kidney);
-  res.send({
-    response,
-  });
+  if (!response.success) {
+    res.status(411).send({
+      msg: "Invalid Input",
+    });
+  } else {
+    res.send({
+      response,
+    });
+  }
 });
 
 // global catches
