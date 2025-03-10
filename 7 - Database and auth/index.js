@@ -24,10 +24,25 @@ const All_User = [
 ];
 
 // Function to check if a user exists in the All_User array
+/* 
+  function userExists(username, password) {
+    return All_User.some(
+      (user) => user.username === username && user.password === password
+    );
+  }
+*/
+
 function userExists(username, password) {
-  return All_User.some(
-    (user) => user.username === username && user.password === password
-  );
+  let userExist = false;
+  for (let i = 0; i < All_User.length; i++) {
+    if (
+      All_User[i].username === username &&
+      All_User[i].password === password
+    ) {
+      userExist = true;
+    }
+  }
+  return userExist;
 }
 
 app.post("/signin", (req, res) => {
