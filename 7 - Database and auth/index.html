@@ -9,26 +9,20 @@
   <body>
     <button onclick="personData()">Get User Data</button>
     <div id="userData"></div>
-
     <script>
-      // Function to fetch user data
       async function personData() {
         try {
           const response = await fetch("https://fakerapi.it/api/v1/persons");
           if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error(`HTTP error ! Status: ${response.status}`);
           }
           const finalData = await response.json();
-          document.getElementById("userData").innerHTML = JSON.stringify(
-            finalData,
-            null,
-            2
-          );
-          console.log(finalData);
-        } catch (error) {
-          console.error("Error fetching data:", error);
           document.getElementById("userData").innerHTML =
-            "Failed to load data.";
+            JSON.stringify(finalData);
+        } catch (error) {
+          console.log("Error fetching data: ", error);
+          document.getElementById("userData").innerHTML =
+            "Faild to Load the Data";
         }
       }
     </script>
