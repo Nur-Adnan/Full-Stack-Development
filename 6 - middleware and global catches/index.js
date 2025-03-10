@@ -3,6 +3,7 @@ const zod = require("zod");
 const app = express();
 const port = 3000;
 const schema = zod.array(zod.number());
+
 const userZodSchema = zod.object({
   email: zod.string(),
   password: zod.string(),
@@ -104,7 +105,7 @@ app.use((err, req, res, next) => {
 
 function validInput(obj) {
   const schema = zod.object({
-    email: zod.string().email(),
+    email: zod.string().email().endsWith("@gmail.com"),
     password: zod.string().min(8),
   });
   const response = schema.safeParse(obj);
